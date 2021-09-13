@@ -1,6 +1,6 @@
 class Element {
-  createElement(elemType, classNames = [], text) {
-    const element = document.createElement(elemType);
+  createElement(tagName, classNames = [], text) {
+    const element = document.createElement(tagName);
     if (text) {
       element.textContent = text;
     }
