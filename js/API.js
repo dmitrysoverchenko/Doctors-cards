@@ -1,7 +1,7 @@
-const requestUrl = "https://ajax.test-danit.com/api/v2";
+const request = "https://ajax.test-danit.com/api/v2";
 
 const authorization = async (email, password) => {
-  const response = await fetch(`${requestUrl}/cards/login`, {
+  const response = await fetch(`${request}/cards/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: email, password: password }),
@@ -16,7 +16,7 @@ const authorization = async (email, password) => {
 };
 
 const getCards = async () => {
-  const response = await fetch(`${requestUrl}/cards`, {
+  const response = await fetch(`${request}/cards`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const getCards = async () => {
 };
 
 const createVisit = async (formData) => {
-  const response = await fetch(`${requestUrl}/cards`, {
+  const response = await fetch(`${request}/cards`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -40,7 +40,7 @@ const createVisit = async (formData) => {
 };
 
 const editCard = async (id, formData) => {
-  const response = await fetch(`${requestUrl}/cards/${id}`, {
+  const response = await fetch(`${request}/cards/${id}`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -52,7 +52,7 @@ const editCard = async (id, formData) => {
 };
 
 const deleteCard = async (id) => {
-  const response = await fetch(`${requestUrl}/cards/${id}`, {
+  const response = await fetch(`${request}/cards/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,

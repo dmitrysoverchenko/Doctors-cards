@@ -47,7 +47,7 @@ export class Input extends Element {
   }
 }
 
-export class Select extends Component {
+export class Select extends Element {
   constructor(
     options = [],
     name,
@@ -80,7 +80,7 @@ export class Select extends Component {
   }
 }
 
-export class Textarea extends Component {
+export class Textarea extends Element {
   constructor(name, className, placeholder = "", value = "", handleChange) {
     super();
     this.name = name;
@@ -100,7 +100,7 @@ export class Textarea extends Component {
   }
 }
 
-export class Button extends Component {
+export class Button extends Element {
   constructor(type, text, className, handleClick) {
     super();
     this.type = type;
