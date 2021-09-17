@@ -16,9 +16,8 @@ export class Modal extends Element {
   renderHeader(titleText) {
     this.modalHeader = this.createElement("div", ["modal-header"]);
     this.header = this.createElement("h2", ["header"], titleText);
-    this.close = this.createElement("i", ["bi", "bi-x-circle-fill"]);
-    this.close.addEventListener("click", this.hide);
-    this.modalHeader.append(this.header, this.close);
+
+    this.modalHeader.append(this.header);
     return this.modalHeader;
   }
 
@@ -32,8 +31,8 @@ export class Modal extends Element {
     this.modalFooter = this.createElement("div", ["modal-footer"]);
     this.button = this.createElement(
       "button",
-      ["btn", "btn-default"],
-      "Cancel"
+      ["btn", "btn-outline-secondary"],
+      "Close"
     );
     this.button.addEventListener("click", this.hide);
     this.modalFooter.append(this.button);

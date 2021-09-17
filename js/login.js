@@ -2,6 +2,9 @@ import { Form } from "./form.js";
 import { authorization, getCards } from "./API.js";
 import { Element } from "./elements.js";
 import { modal } from "./modal.js";
+import { renderAllCards } from "./cards.js";
+
+// email: trial1010@gmail.com , password: 1010
 
 class LoginForm extends Element {
   constructor() {
@@ -22,13 +25,30 @@ class LoginForm extends Element {
       {
         typeField: "button",
         type: "submit",
-        text: "Login",
+        text: "Enter",
         functionClick: this.login,
       },
     ];
   }
 
   login = (form) => {
+    // fetch("https://ajax.test-danit.com/api/v2/cards", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: `Bearer ${localStorage.getItem("token")}`,
+    //   },
+    //   body: JSON.stringify({
+    //     title: "Визит к кардиологу",
+    //     description: "Плановый визит",
+    //     doctor: "Cardiologist",
+    //     bp: "24",
+    //     age: 23,
+    //     weight: 70,
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((response) => console.log(response));
     const enterBtn = document.querySelector("#enter-btn");
     const createVisitBtn = document.querySelector(".create-visit-btn");
     const email = form.target["email"].value;
@@ -40,6 +60,7 @@ class LoginForm extends Element {
         const cards = await getCards();
         modal.hide();
         console.log(cards);
+        renderAllCards();
       }
     });
   };

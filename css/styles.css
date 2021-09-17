@@ -1,6 +1,110 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-top: 35px;
+}
+.body {
+  font-family: "Montserrat", sans-serif;
+}
 .modal {
   display: block;
 }
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.719);
+  opacity: 1;
+}
+.modal.show {
+  display: block;
+}
+.logo {
+  display: flex;
+  justify-content: space-between;
+  background-color: aliceblue;
+}
+form {
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+.card-header {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.12);
+}
 .create-visit-btn {
   display: none;
+  background-color: #42a16d;
+  border: none;
+}
+.create-visit-btn:hover,
+.enter-btn:hover {
+  background-color: rgb(79, 197, 99);
+  color: #fff;
+  border: none;
+}
+.enter-btn {
+  background-color: #42a16d;
+  border: none;
+}
+.filter {
+  display: flex;
+  margin: 40px;
+}
+.wrapper-cards {
+  display: flex;
+  padding: 0 40px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.no-items {
+  display: flex;
+  justify-content: center;
+  color: #17a2b8;
+  font-size: 30px;
+  width: 100%;
+}
+.card-text {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.card-text-header {
+  font-size: 22px;
+
+  font-weight: bold;
+}
+.card {
+  background-color: #42a16d;
+  color: #fff;
+  padding: 10px;
+  margin-top: 15px;
+  margin-right: 40px;
+  height: 100%;
+}
+.card-btn-load {
+  cursor: pointer;
+  color: #17a2b8;
+  text-align: center;
+  border-radius: 8px;
+  width: 120px;
+  background-color: #fff;
+}
+
+.card-body {
+  display: none;
+}
+.btn-info {
+  border-radius: 8px;
+  height: 50px;
+  width: 120px;
+}
+
+.bi {
+  margin-right: 15px;
 }
