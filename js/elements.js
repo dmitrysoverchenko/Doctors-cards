@@ -51,6 +51,7 @@ export class Select extends Element {
   constructor(
     options = [],
     name,
+    placeholder = "",
     handleChange,
     className = ["form-control"],
     value = ""
@@ -58,12 +59,16 @@ export class Select extends Element {
     super();
     this.options = options;
     this.name = name;
+    this.placeholder = placeholder;
     this.className = className;
     this.value = value;
     this.handleChange = handleChange;
   }
 
   render() {
+    this.selectWrapper = this.createElement("div", "select-wrapper");
+    this.selectPlaceholder = this.createElement("div", "select-placeholder");
+
     this.select = this.createElement("select", this.className);
     this.select.name = this.name;
     this.select.value = this.value;
@@ -76,7 +81,11 @@ export class Select extends Element {
       this.select.appendChild(this.option);
     });
     this.select.addEventListener("change", this.handleChange);
-    return this.select;
+
+    this.selectWrapper.append(this.selectPlaceholder, this.select);
+    return this.selectWrapper;
+    // console.log(this.select.options[this.selectedIndex].text);
+    // return this.select;
   }
 }
 

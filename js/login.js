@@ -3,6 +3,7 @@ import { authorization, getCards } from "./API.js";
 import { Element } from "./elements.js";
 import { modal } from "./modal.js";
 import { renderAllCards } from "./cards.js";
+import { Filter } from "./filter.js";
 
 // email: trial1010@gmail.com , password: 1010
 
@@ -60,6 +61,8 @@ class LoginForm extends Element {
         const cards = await getCards();
         modal.hide();
         console.log(cards);
+        const filter = new Filter(cards);
+        filter.render();
         renderAllCards();
       }
     });

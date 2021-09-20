@@ -51,8 +51,14 @@ form {
   border: none;
 }
 .filter {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 40px;
   margin: 40px;
+}
+
+.filter-btn {
+  align-self: center;
 }
 .wrapper-cards {
   display: flex;
