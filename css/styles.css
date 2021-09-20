@@ -97,9 +97,13 @@ form {
   font-size: 16px;
 }
 .card-text-header {
-  font-size: 22px;
+  font-size: 23px;
 
   font-weight: bold;
+}
+.card-text-name {
+  font-style: italic;
+  font-size: 19px;
 }
 .card {
   background-color: #42a16d;

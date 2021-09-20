@@ -45,6 +45,7 @@ class LoginForm extends Element {
     //     bp: "24",
     //     age: 23,
     //     weight: 70,
+    //     fullName: "John Doe",
     //   }),
     // })
     //   .then((response) => response.json())
