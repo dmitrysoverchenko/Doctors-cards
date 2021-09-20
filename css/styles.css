@@ -4,14 +4,36 @@
 /* Header */
 .header {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 50px;
-  margin-top: 35px;
+  justify-content: space-around;
+  margin-right: 25px;
+  margin-left: 25px;
+  align-items: center;
 }
+.logo_icon:hover {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 .create-visit-btn {
   display: none;
   background-color: #42a16d;
+  border-radius: 8px;
   border: none;
+  color: white;
+  padding: 15px 35px;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 16px;
+  margin: 4px 2px;
 }
 .create-visit-btn:hover,
 .enter-btn:hover {
@@ -21,7 +43,15 @@
 }
 .enter-btn {
   background-color: #42a16d;
+  border-radius: 8px;
   border: none;
+  color: white;
+  padding: 15px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
 }
 
 /* Modal */
@@ -55,18 +85,11 @@ form {
 
 .cards_wrapper {
   display: flex;
-  padding: 0 40px;
+  padding: 20px 40px;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.no-items {
-  display: flex;
-  justify-content: center;
-  color: #17a2b8;
-  font-size: 30px;
-  width: 100%;
-}
 .card-text {
   text-align: center;
   margin-top: 10px;
@@ -99,6 +122,14 @@ form {
   display: none;
   position: relative;
 }
+.no-items {
+  display: flex;
+  justify-content: center;
+  color: #17a2b8;
+  font-size: 30px;
+  width: 100%;
+}
+/* Buttons and icons */
 .btn-info {
   border-radius: 8px;
   height: 50px;
