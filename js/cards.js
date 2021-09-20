@@ -9,7 +9,7 @@ export class AllCards extends Element {
   }
 
   render() {
-    const wrapperCards = document.querySelector(".wrapper-cards");
+    const wrapperCards = document.querySelector(".cards_wrapper");
     if (this.cards.length == 0) {
       wrapperCards.innerHTML = "";
       this.noItems = this.createElement(
@@ -61,28 +61,33 @@ export class Card extends Element {
       ["card-text"],
       this.cardInfo.fullName
     );
-    const leadMoreButton = this.createElement(
-      "p",
-      ["card-btn-load"],
-      "LOAD MORE"
-    );
-    leadMoreButton.addEventListener("click", () => {
+    this.leadMoreButton = this.createElement("i", [
+      "bi",
+      "bi-caret-down-square",
+    ]);
+    this.leadMoreButton.addEventListener("click", () => {
       const body = document.querySelector(`.card-body-${this.cardInfo.id}`);
       body.style.display = "block";
-      leadMoreButton.style.display = "none";
+      this.leadMoreButton.style.display = "none";
     });
     this.iconDiv.append(this.editIcon, this.deleteIcon);
     this.header.append(
       this.iconDiv,
       this.doctor,
       this.fullName,
-      leadMoreButton
+      this.leadMoreButton
     );
     return this.header;
   };
 
   renderBody() {
     this.body = this.createElement("div", [`card-body-${this.cardInfo.id}`]);
+    this.hideButton = this.createElement("i", ["bi", "bi-caret-up-square"]);
+    this.hideButton.addEventListener("click", () => {
+      const body = document.querySelector(`.card-body-${this.cardInfo.id}`);
+      body.style.display = "none";
+      this.leadMoreButton.style.display = "block";
+    });
     this.body.style.display = "none";
     const bodyElement = [];
     for (let key in this.cardInfo) {
@@ -95,6 +100,7 @@ export class Card extends Element {
       }
     }
     this.body.append(...bodyElement);
+    this.body.append(this.hideButton);
     return this.body;
   }
 
