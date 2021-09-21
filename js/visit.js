@@ -60,6 +60,7 @@ class Visit extends Element {
     const select = new Select(
       ["Cardiologist", "Dantist", "Therapist"],
       "doctor",
+      "",
       this.chooseTheDoctor
     );
     this.createVisitForm.append(select.render());
