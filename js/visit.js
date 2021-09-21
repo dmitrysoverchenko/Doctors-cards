@@ -23,13 +23,18 @@ class Visit extends Element {
       {
         typeField: "select",
         name: "urgency",
-        options: ["Normal", "Priority", "Emergency"],
+        options: ["High", "Normal", "Low"],
       },
       {
         typeField: "textarea",
         type: "textarea",
         name: "description",
         placeholder: "Description",
+      },
+      {
+        typeField: "select",
+        name: "status",
+        options: ["Current visit status : Open", "Current visit status : Done"],
       },
     ];
   }
@@ -46,7 +51,7 @@ class Visit extends Element {
       return this.createVisitForm.append(this.currentDoctorForm.render());
     }
     if (value === "Dantist") {
-      this.currentDoctorForm = new VisitDantist(this.commonFields);
+      this.currentDoctorForm = new VisitDentist(this.commonFields);
       return this.createVisitForm.append(this.currentDoctorForm.render());
     }
     if (value === "Therapist") {
@@ -124,7 +129,7 @@ class VisitCardiologist {
   }
 }
 
-class VisitDantist {
+class VisitDentist {
   constructor(commonFields) {
     this.commonFields = commonFields;
     this.createVisitForm = [
@@ -146,7 +151,7 @@ class VisitDantist {
 
   handlerCreateVisit = (e) => {
     const elements = e.target.elements;
-    let formData = { doctor: "Dantist" };
+    let formData = { doctor: "Dentist" };
     this.createVisitForm.forEach((el) => {
       if (el.name) {
         formData = { ...formData, [el.name]: elements[el.name].value };
@@ -161,8 +166,8 @@ class VisitDantist {
   };
 
   render() {
-    this.visitDantist = new Form(this.createVisitForm);
-    return this.visitDantist.render();
+    this.visitDentist = new Form(this.createVisitForm);
+    return this.visitDentist.render();
   }
 }
 
