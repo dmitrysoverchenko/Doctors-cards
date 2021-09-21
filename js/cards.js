@@ -1,5 +1,6 @@
 import { Element } from "./elements.js";
 import { deleteCard } from "./API.js";
+import { EditCard } from "./editCard.js";
 import { getCards } from "./API.js";
 
 export class AllCards extends Element {

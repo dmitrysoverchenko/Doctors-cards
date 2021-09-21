@@ -45,8 +45,8 @@ class Visit extends Element {
       this.currentDoctorForm = new VisitCardiologist(this.commonFields);
       return this.createVisitForm.append(this.currentDoctorForm.render());
     }
-    if (value === "Dantist") {
-      this.currentDoctorForm = new VisitDantist(this.commonFields);
+    if (value === "Dentist") {
+      this.currentDoctorForm = new VisitDentist(this.commonFields);
       return this.createVisitForm.append(this.currentDoctorForm.render());
     }
     if (value === "Therapist") {
@@ -58,7 +58,7 @@ class Visit extends Element {
   render() {
     this.createVisitForm = this.createElement("div", ["create-visit"]);
     const select = new Select(
-      ["Cardiologist", "Dantist", "Therapist"],
+      ["Cardiologist", "Dentist", "Therapist"],
       "doctor",
       "",
       this.chooseTheDoctor
@@ -106,7 +106,6 @@ class VisitCardiologist {
     let formData = { doctor: "Cardiologist" };
     this.createVisitForm.forEach((el) => {
       if (el.name) {
-        console.log(formData);
         formData = { ...formData, [el.name]: elements[el.name].value };
       }
     });
@@ -124,7 +123,7 @@ class VisitCardiologist {
   }
 }
 
-class VisitDantist {
+class VisitDentist {
   constructor(commonFields) {
     this.commonFields = commonFields;
     this.createVisitForm = [
@@ -146,23 +145,23 @@ class VisitDantist {
 
   handlerCreateVisit = (e) => {
     const elements = e.target.elements;
-    let formData = { doctor: "Dantist" };
+    let formData = { doctor: "Dentist" };
     this.createVisitForm.forEach((el) => {
       if (el.name) {
-        formData = { ...formData, [el.name]: elements[el.name].value };
+      formData = { ...formData, [el.name]: elements[el.name].value };
       }
     });
     createVisit(formData).then((response) => {
       if (response) {
-        renderAllCards();
-        modal.hide();
+      renderAllCards();
+      modal.hide();
       }
     });
   };
 
   render() {
-    this.visitDantist = new Form(this.createVisitForm);
-    return this.visitDantist.render();
+    this.visitDentist = new Form(this.createVisitForm);
+    return this.visitDentist.render();
   }
 }
 
