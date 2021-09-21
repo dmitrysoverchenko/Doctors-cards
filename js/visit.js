@@ -9,65 +9,63 @@ class Visit extends Element {
     super();
     this.commonFields = [
       {
-        field: "input",
+        typeField: "input",
         type: "text",
-        title: "fullName",
-        placeholder: "Full name",
+        name: "fullName",
+        placeholder: "Full Name",
       },
       {
-        field: "input",
+        typeField: "input",
         type: "text",
-        title: "purposeOfVisit",
-        placeholder: "Your visit purpose",
+        name: "purposeOfVisit",
+        placeholder: "Purpose of your visit",
       },
       {
-        field: "select",
-        title: "urgency",
-        options: ["Standart", "Priority", "Emergency"],
+        typeField: "select",
+        name: "urgency",
+        options: ["Normal", "Priority", "Emergency"],
       },
       {
-        field: "textarea",
+        typeField: "textarea",
         type: "textarea",
-        title: "description",
+        name: "description",
         placeholder: "Description",
       },
     ];
   }
 
-  chooseDoctor = (event) => {
-    let value = event.target.value;
+  chooseTheDoctor = (e) => {
+    let value = e.target.value;
     const form = document.querySelector("form");
-
     if (form) {
-      this.createVisit.removeChild(form);
+      this.createVisitForm.removeChild(form);
     }
 
     if (value === "Cardiologist") {
-      this.visitDoctor = new VisitCardiologist(this.commonFields);
-      return this.createVisit.append(this.visitDoctor.render());
+      this.currentDoctorForm = new VisitCardiologist(this.commonFields);
+      return this.createVisitForm.append(this.currentDoctorForm.render());
     }
     if (value === "Dantist") {
-      this.visitDoctor = new VisitDantist(this.commonFields);
-      return this.createVisit.append(this.visitDoctor.render());
+      this.currentDoctorForm = new VisitDantist(this.commonFields);
+      return this.createVisitForm.append(this.currentDoctorForm.render());
     }
     if (value === "Therapist") {
-      this.visitDoctor = new VisitTherapist(this.commonFields);
-      return this.createVisit.append(this.visitDoctor.render());
+      this.currentDoctorForm = new VisitTherapist(this.commonFields);
+      return this.createVisitForm.append(this.currentDoctorForm.render());
     }
   };
 
   render() {
-    this.createVisit = this.createElement("div", ["create-visit"]);
+    this.createVisitForm = this.createElement("div", ["create-visit"]);
     const select = new Select(
       ["Cardiologist", "Dantist", "Therapist"],
-      "Doctor",
-      this.chooseDoctor
+      "doctor",
+      this.chooseTheDoctor
     );
-    this.createVisit.append(select.render());
-    return this.createVisit;
+    this.createVisitForm.append(select.render());
+    return this.createVisitForm;
   }
 }
-export const visit = new Visit();
 
 class VisitCardiologist {
   constructor(commonFields) {
@@ -75,29 +73,29 @@ class VisitCardiologist {
     this.createVisitForm = [
       ...this.commonFields,
       {
-        field: "input",
+        typeField: "input",
         type: "text",
-        title: "pressure",
-        placeholder: "Norman pressure",
+        name: "pressure",
+        placeholder: "Normal pressure",
       },
       {
-        field: "input",
+        typeField: "input",
         type: "text",
-        title: "bodyMassIndex",
+        name: "bodyMassIndex",
         placeholder: "Body Mass Index",
       },
       {
-        field: "textarea",
+        typeField: "textarea",
         type: "textarea",
-        title: "pastDiseases",
+        name: "pastDiseases",
         placeholder: "Past diseases of the cardiovascular system",
       },
-      { field: "input", type: "text", title: "age", placeholder: "Age" },
+      { typeField: "input", type: "text", name: "age", placeholder: "Age" },
       {
-        field: "button",
+        typeField: "button",
         type: "submit",
         text: "Create",
-        eventListener: this.handlerCreateVisit,
+        functionClick: this.handlerCreateVisit,
       },
     ];
   }
@@ -106,8 +104,9 @@ class VisitCardiologist {
     const elements = e.target.elements;
     let formData = { doctor: "Cardiologist" };
     this.createVisitForm.forEach((el) => {
-      if (el.title) {
-        formData = { ...formData, [el.title]: elements[el.title].value };
+      if (el.name) {
+        console.log(formData);
+        formData = { ...formData, [el.name]: elements[el.name].value };
       }
     });
     createVisit(formData).then((response) => {
@@ -119,8 +118,8 @@ class VisitCardiologist {
   };
 
   render() {
-    this.VisitCardiologist = new Form(this.createVisitForm);
-    return this.VisitCardiologist.render();
+    this.visitCardiologist = new Form(this.createVisitForm);
+    return this.visitCardiologist.render();
   }
 }
 
@@ -130,16 +129,16 @@ class VisitDantist {
     this.createVisitForm = [
       ...this.commonFields,
       {
-        field: "input",
+        typeField: "input",
         type: "text",
-        title: "dateLastVisit",
+        name: "dateLastVisit",
         placeholder: "Date of your last visit",
       },
       {
-        field: "button",
+        typeField: "button",
         type: "submit",
         text: "Create",
-        eventListener: this.handlerCreateVisit,
+        functionClick: this.handlerCreateVisit,
       },
     ];
   }
@@ -148,8 +147,8 @@ class VisitDantist {
     const elements = e.target.elements;
     let formData = { doctor: "Dantist" };
     this.createVisitForm.forEach((el) => {
-      if (el.title) {
-        formData = { ...formData, [el.title]: elements[el.title].value };
+      if (el.name) {
+        formData = { ...formData, [el.name]: elements[el.name].value };
       }
     });
     createVisit(formData).then((response) => {
@@ -161,8 +160,8 @@ class VisitDantist {
   };
 
   render() {
-    this.VisitDantist = new Form(this.createVisitForm);
-    return this.VisitDantist.render();
+    this.visitDantist = new Form(this.createVisitForm);
+    return this.visitDantist.render();
   }
 }
 
@@ -171,12 +170,12 @@ class VisitTherapist {
     this.commonFields = commonFields;
     this.createVisitForm = [
       ...this.commonFields,
-      { field: "input", type: "text", title: "age", placeholder: "Age" },
+      { typeField: "input", type: "text", name: "age", placeholder: "Age" },
       {
-        field: "button",
+        typeField: "button",
         type: "submit",
         text: "Create",
-        eventListener: this.handlerCreateVisit,
+        functionClick: this.handlerCreateVisit,
       },
     ];
   }
@@ -185,8 +184,8 @@ class VisitTherapist {
     const elements = e.target.elements;
     let formData = { doctor: "Therapist" };
     this.createVisitForm.forEach((el) => {
-      if (el.title) {
-        formData = { ...formData, [el.title]: elements[el.title].value };
+      if (el.name) {
+        formData = { ...formData, [el.name]: elements[el.name].value };
       }
     });
     createVisit(formData).then((response) => {
@@ -198,7 +197,9 @@ class VisitTherapist {
   };
 
   render() {
-    this.VisitTherapist = new Form(this.createVisitForm);
-    return this.VisitTherapist.render();
+    this.visitTherapist = new Form(this.createVisitForm);
+    return this.visitTherapist.render();
   }
 }
+
+export const visitForm = new Visit();
