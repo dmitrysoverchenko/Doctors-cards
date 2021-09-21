@@ -66,8 +66,12 @@ export class Select extends Element {
   }
 
   render() {
-    this.selectWrapper = this.createElement("div", "select-wrapper");
-    this.selectPlaceholder = this.createElement("div", "select-placeholder");
+    this.selectWrapper = this.createElement("div", ["select-wrapper"]);
+    this.selectPlaceholder = this.createElement(
+      "p",
+      ["select-placeholder"],
+      this.placeholder
+    );
 
     this.select = this.createElement("select", this.className);
     this.select.name = this.name;

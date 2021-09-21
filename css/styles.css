@@ -103,9 +103,15 @@ form {
   gap: 40px;
   margin: 40px;
 }
-
-.filter-btn {
+.select-wrapper {
+  display: flex;
+}
+.select-placeholder {
   align-self: center;
+  margin-right: 10px;
+}
+.filter-btn {
+  justify-self: center;
 }
 
 .cards_wrapper {

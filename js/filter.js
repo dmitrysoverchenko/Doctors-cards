@@ -51,22 +51,22 @@ export class Filter extends Element {
     );
 
     this.selectStatus = new Select(
-      ["Status", "All", "Open", "Done"],
+      ["All", "Open", "Done"],
       "status",
-      "Status",
+      "Status:",
       this.filterForStatus
     );
     this.selectPriority = new Select(
-      ["Priority", "All", "High", "Normal", "Low"],
+      ["All", "High", "Normal", "Low"],
       "priority",
-      "Priority",
+      "Priority:",
       this.filterForPriority
     );
 
     this.searchButton = new Button(
       "button",
       "Search",
-      ["btn", "btn-info", "enter-btn", "filter-btn"],
+      ["btn", "enter-btn", "filter-btn"],
       this.handlerSearch
     );
     filterWrapper.append(
