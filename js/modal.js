@@ -57,4 +57,3 @@ export class Modal extends Element {
   }
 }
 export const modal = new Modal();
-export const modalRender = modal.render();

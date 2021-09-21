@@ -58,7 +58,7 @@ export class Card extends Element {
     );
     this.fullName = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "card-text-name"],
       this.cardInfo.fullName
     );
     this.leadMoreButton = this.createElement("i", [
@@ -93,14 +93,15 @@ export class Card extends Element {
     for (let key in this.cardInfo) {
       if (
         this.cardInfo[key] !== this.cardInfo.doctor &&
-        this.cardInfo[key] !== this.cardInfo.fullName
+        this.cardInfo[key] !== this.cardInfo.fullName &&
+        this.cardInfo[key] !== this.cardInfo.id
       ) {
         let el = this.createElement("p", ["card-text"], this.cardInfo[key]);
         bodyElement.push(el);
       }
     }
-    this.body.append(...bodyElement);
-    this.body.append(this.hideButton);
+    this.body.append(...bodyElement, this.hideButton);
+
     return this.body;
   }
 
