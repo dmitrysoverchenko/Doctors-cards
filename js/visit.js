@@ -153,13 +153,13 @@ class VisitDentist {
     let formData = { doctor: "Dentist" };
     this.createVisitForm.forEach((el) => {
       if (el.name) {
-      formData = { ...formData, [el.name]: elements[el.name].value };
+        formData = { ...formData, [el.name]: elements[el.name].value };
       }
     });
     createVisit(formData).then((response) => {
       if (response) {
-      renderAllCards();
-      modal.hide();
+        renderAllCards();
+        modal.hide();
       }
     });
   };
