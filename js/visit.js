@@ -23,13 +23,18 @@ class Visit extends Element {
       {
         typeField: "select",
         name: "urgency",
-        options: ["Normal", "Priority", "Emergency"],
+        options: ["High", "Normal", "Low"],
       },
       {
         typeField: "textarea",
         type: "textarea",
         name: "description",
         placeholder: "Description",
+      },
+      {
+        typeField: "select",
+        name: "status",
+        options: ["Current visit status : Open", "Current visit status : Done"],
       },
     ];
   }
