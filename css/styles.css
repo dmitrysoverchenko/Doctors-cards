@@ -100,18 +100,21 @@ form {
 .filter {
   display: grid;
   grid-auto-flow: column;
-  gap: 40px;
-  margin: 40px;
+  gap: 40px auto;
+  margin: 40px 80px;
+
+  align-items: center;
 }
 .select-wrapper {
   display: flex;
+  margin-left: 20px;
 }
 .select-placeholder {
   align-self: center;
   margin-right: 10px;
 }
 .filter-btn {
-  justify-self: center;
+  justify-self: end;
 }
 
 .cards_wrapper {

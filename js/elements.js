@@ -88,8 +88,6 @@ export class Select extends Element {
 
     this.selectWrapper.append(this.selectPlaceholder, this.select);
     return this.selectWrapper;
-    // console.log(this.select.options[this.selectedIndex].text);
-    // return this.select;
   }
 }
 
