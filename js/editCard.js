@@ -43,7 +43,7 @@ export class EditCard extends Element {
         this.editFormFields.push({
           typeField: "select",
           name: "urgency",
-          options: ["Normal", "Priority", "Emergency"],
+          options: ["High", "Normal", "Low"],
           value: this.cardContent[key],
         });
       }

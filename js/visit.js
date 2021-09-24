@@ -63,7 +63,7 @@ class Visit extends Element {
   render() {
     this.createVisitForm = this.createElement("div", ["create-visit"]);
     const select = new Select(
-      ["Cardiologist", "Dentist", "Therapist"],
+      ["Select the doctor", "Cardiologist", "Dentist", "Therapist"],
       "doctor",
       "",
       this.chooseTheDoctor
