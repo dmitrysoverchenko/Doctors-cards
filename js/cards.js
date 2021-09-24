@@ -229,7 +229,7 @@ export class Card extends Element {
   }
 
   render() {
-    this.card = this.createElement("div", ["card", "w-25"]);
+    this.card = this.createElement("div", ["card"]);
     this.card.append(this.renderHeaderCard(), this.renderBody());
     return this.card;
   }

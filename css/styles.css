@@ -1,6 +1,6 @@
 .body {
   font-family: "Montserrat", sans-serif;
-  background: url(../img/cover.jpg) no-repeat center center fixed;
+  background: url(../img/cover.png) no-repeat center center fixed;
   background-size: cover;
 }
 /* Header */
@@ -26,7 +26,7 @@
 
 .create-visit-btn {
   display: none;
-  background-color: #42a16d;
+  background-color: #1779a0;
   border-radius: 8px;
   border: none;
   color: white;
@@ -39,12 +39,12 @@
 }
 .create-visit-btn:hover,
 .enter-btn:hover {
-  background-color: rgb(79, 197, 99);
+  background-color: #26afc7;
   color: #fff;
   border: none;
 }
 .enter-btn {
-  background-color: #42a16d;
+  background-color: #1779a0;
   border-radius: 8px;
   border: none;
   color: white;
@@ -78,32 +78,28 @@
 }
 
 /* Cards */
-.card {
-  border-radius: 10px;
-}
-.card--hide {
-  display: none;
-}
+
 .card-header {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.12);
   position: relative;
   border-radius: 10px !important;
+  height: 180px;
 }
 .create-visit-btn {
   display: none;
-  background-color: #42a16d;
+  background-color: #1779a0;
   border: none;
 }
 .create-visit-btn:hover,
 .enter-btn:hover {
-  background-color: rgb(79, 197, 99);
+  background-color: #26afc7;
   color: #fff;
   border: none;
 }
 .enter-btn {
-  background-color: #42a16d;
+  background-color: #1779a0;
   border: none;
 }
 .filter {
@@ -128,9 +124,14 @@
 
 .cards_wrapper {
   display: flex;
+
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
   padding: 20px 40px;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-content: center;
 }
 
 .card-text {
@@ -149,12 +150,18 @@
   font-size: 19px;
 }
 .card {
-  background-color: #42a16d;
+  background-color: #1779a0cc;
   color: #fff;
   padding: 10px;
-  margin-top: 15px;
-  margin-right: 40px;
+  margin: 20px 3%;
   height: 100%;
+  border-radius: 10px;
+  width: 27%;
+  min-width: 200px;
+}
+
+.card--hide {
+  display: none;
 }
 .card-btn-load {
   cursor: pointer;
