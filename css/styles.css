@@ -1,6 +1,6 @@
 .body {
   font-family: "Montserrat", sans-serif;
-  background: url(/img/cover.jpg) no-repeat center center fixed;
+  background: url(../img/cover.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 /* Header */
@@ -200,17 +200,9 @@
 
 .create-visit > .select-wrapper {
   display: block;
-<<<<<<< HEAD
   margin: 0;
 }
 .form-horizontal > .select-wrapper {
   display: block;
   margin: 0;
-=======
-  margin: 0px;
-}
-.form-horizontal > .select-wrapper {
-  display: block;
-  margin: 0px;
->>>>>>> dev
 }
