@@ -69,7 +69,7 @@
 }
 /* Form */
 
-form {
+.form {
   text-align: center;
 }
 
@@ -200,9 +200,17 @@ form {
 
 .create-visit > .select-wrapper {
   display: block;
+<<<<<<< HEAD
   margin: 0;
 }
 .form-horizontal > .select-wrapper {
   display: block;
   margin: 0;
+=======
+  margin: 0px;
+}
+.form-horizontal > .select-wrapper {
+  display: block;
+  margin: 0px;
+>>>>>>> dev
 }
