@@ -29,7 +29,6 @@ export class EditCard extends Element {
   renderEditForm() {
     this.editFormFields = [];
     for (let key in this.cardContent) {
-      console.log(key, this.cardContent[key]);
       if (key !== "id" && key !== "urgency" && key !== "description") {
         this.editFormFields.push({
           typeField: "input",
@@ -43,7 +42,7 @@ export class EditCard extends Element {
         this.editFormFields.push({
           typeField: "select",
           name: "urgency",
-          options: ["Normal", "Priority", "Emergency"],
+          options: ["High", "Normal", "Low"],
           value: this.cardContent[key],
         });
       }

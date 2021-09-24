@@ -33,24 +33,6 @@ class LoginForm extends Element {
   }
 
   login = (form) => {
-    // fetch("https://ajax.test-danit.com/api/v2/cards", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //   },
-    //   body: JSON.stringify({
-    //     title: "Визит к кардиологу",
-    //     description: "Плановый визит",
-    //     doctor: "Cardiologist",
-    //     bp: "24",
-    //     age: 23,
-    //     weight: 70,
-    //     fullName: "John Doe",
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((response) => console.log(response));
     const enterBtn = document.querySelector("#enter-btn");
     const createVisitBtn = document.querySelector(".create-visit-btn");
     const email = form.target["email"].value;
@@ -61,9 +43,9 @@ class LoginForm extends Element {
         createVisitBtn.style.display = "block";
         const cards = await getCards();
         modal.hide();
-        console.log(cards);
         const filter = new Filter(cards);
         filter.render();
+
         renderAllCards();
       }
     });

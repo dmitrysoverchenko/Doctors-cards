@@ -90,12 +90,12 @@ export class Card extends Element {
     );
     this.urgent = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "urgency"],
       `Urgency : ${this.cardInfo.urgency}`
     );
     this.details = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "card-text-description"],
       `Description : ${this.cardInfo.description}`
     );
     this.patientAge = this.createElement(
@@ -105,7 +105,7 @@ export class Card extends Element {
     );
     this.visitStatus = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "status"],
       this.cardInfo.status
     );
     this.bodyElement.push(
@@ -124,12 +124,12 @@ export class Card extends Element {
     );
     this.urgent = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "urgency"],
       `Urgency : ${this.cardInfo.urgency}`
     );
     this.details = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "card-text-description"],
       `Description : ${this.cardInfo.description}`
     );
 
@@ -140,7 +140,7 @@ export class Card extends Element {
     );
     this.visitStatus = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "status"],
       this.cardInfo.status
     );
     this.bodyElement.push(
@@ -159,12 +159,12 @@ export class Card extends Element {
     );
     this.urgent = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "urgency"],
       `Urgency : ${this.cardInfo.urgency}`
     );
     this.details = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "card-text-description"],
       `Description : ${this.cardInfo.description}`
     );
     this.patientAge = this.createElement(
@@ -189,7 +189,7 @@ export class Card extends Element {
     );
     this.visitStatus = this.createElement(
       "p",
-      ["card-text"],
+      ["card-text", "status"],
       this.cardInfo.status
     );
     this.bodyElement.push(

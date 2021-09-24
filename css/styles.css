@@ -81,6 +81,9 @@ form {
 .card {
   border-radius: 10px;
 }
+.card--hide {
+  display: none;
+}
 .card-header {
   display: flex;
   flex-direction: column;
@@ -193,4 +196,13 @@ form {
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+.create-visit > .select-wrapper {
+  display: block;
+  margin: 0;
+}
+.form-horizontal > .select-wrapper {
+  display: block;
+  margin: 0;
 }

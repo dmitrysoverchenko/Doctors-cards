@@ -8,37 +8,6 @@ export class Filter extends Element {
     this.filterCards = null;
   }
 
-  filterForPriority = (e) => {
-    const value = e.target.value;
-    if (value !== "All") {
-      this.filterCards = this.filterCards
-        ? this.filterCards.filter((card) => card.priority === value)
-        : this.cards.filter((card) => card.priority === value);
-    } else {
-      this.filterCards = this.cards;
-    }
-    renderAllCards(this.filterCards);
-  };
-
-  filterForStatus = (e) => {};
-
-  handlerSearch = () => {
-    const input = document.getElementsByName("search")[0];
-    const value = input.value;
-    if (value !== "") {
-      this.filterCards = this.filterCards
-        ? this.filterCards.filter((card) =>
-            card.description.toUpperCase().includes(value.toUpperCase())
-          )
-        : this.cards.filter((card) =>
-            card.description.toUpperCase().includes(value.toUpperCase())
-          );
-    } else {
-      this.filterCards = this.cards;
-    }
-    renderAllCards(this.filterCards);
-  };
-
   render() {
     const filterWrapper = document.querySelector(".filter");
     this.inputSearch = new Input(
@@ -46,28 +15,25 @@ export class Filter extends Element {
       "search",
       "Search",
       ["form-control"],
-      "",
-      this.handlerSearch
+      ""
     );
 
     this.selectStatus = new Select(
       ["All", "Open", "Done"],
       "status",
-      "Status:",
-      this.filterForStatus
+      "Status:"
     );
     this.selectPriority = new Select(
       ["All", "High", "Normal", "Low"],
-      "priority",
-      "Priority:",
-      this.filterForPriority
+      "urgency",
+      "Urgency:"
     );
 
     this.searchButton = new Button(
       "button",
       "Search",
       ["btn", "enter-btn", "filter-btn"],
-      this.handlerSearch
+      this.search
     );
     filterWrapper.append(
       this.inputSearch.render(),
@@ -76,4 +42,45 @@ export class Filter extends Element {
       this.searchButton.render()
     );
   }
+
+  search = () => {
+    const filteredCards = document.querySelectorAll(".card");
+    const filteredInput = document.getElementsByName("search")[0];
+    const filteredStatus = document.getElementsByName("status")[0];
+    const filteredUrgency = document.getElementsByName("urgency")[0];
+    filteredCards.forEach((el) => {
+      const filterCardHeader = el.querySelector(".card-text-header");
+      const filterCardDescription = el.querySelector(".card-text-description");
+      const filterCardStatus = el.querySelector(".status");
+      const filterCardUrgency = el.querySelector(".urgency");
+      el.classList.add("card--hide");
+
+      if (
+        (filteredInput.value === "" ||
+          filterCardHeader.textContent
+            .toUpperCase()
+            .includes(`${filteredInput.value}`.toUpperCase()) ||
+          filterCardDescription.textContent
+            .toUpperCase()
+            .includes(`${filteredInput.value}`.toUpperCase())) &&
+        (filteredStatus.options[filteredStatus.options.selectedIndex].value ===
+          "All" ||
+          filterCardStatus.textContent.includes(
+            `${
+              filteredStatus.options[filteredStatus.options.selectedIndex].value
+            }`
+          )) &&
+        (filteredUrgency.options[filteredUrgency.options.selectedIndex]
+          .value === "All" ||
+          filterCardUrgency.textContent.includes(
+            `${
+              filteredUrgency.options[filteredUrgency.options.selectedIndex]
+                .value
+            }`
+          ))
+      ) {
+        el.classList.remove("card--hide");
+      }
+    });
+  };
 }

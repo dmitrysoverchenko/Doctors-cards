@@ -5,11 +5,11 @@ export class Modal extends Element {
     super();
   }
   show = () => {
-    this.addClass(this.modalContainer, "show");
+    this.addClass(this.modalContainer, ["show"]);
   };
 
   hide = () => {
-    this.removeClass(this.modalContainer, "show");
+    this.removeClass(this.modalContainer, ["show"]);
     this.modalContainer.remove();
   };
 
