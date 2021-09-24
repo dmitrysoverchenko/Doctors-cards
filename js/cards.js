@@ -1,5 +1,6 @@
 import { Element } from "./elements.js";
 import { deleteCard } from "./API.js";
+import { EditCard } from "./editCard.js";
 import { getCards } from "./API.js";
 // import dragDrop from "./drag&drop.js";
 
@@ -16,7 +17,7 @@ export class AllCards extends Element {
       this.noItems = this.createElement(
         "div",
         ["no-items"],
-        "No items have been added..."
+        "There are no visits assigned"
       );
       wrapperCards.append(this.noItems);
     } else {
@@ -61,7 +62,7 @@ export class Card extends Element {
     this.fullName = this.createElement(
       "p",
       ["card-text", "card-text-name"],
-      this.cardInfo.fullName
+      `Patient name : ${this.cardInfo.fullName}`
     );
     this.leadMoreButton = this.createElement("i", [
       "bi",
@@ -81,7 +82,127 @@ export class Card extends Element {
     );
     return this.header;
   };
+  renderTherapist = () => {
+    this.purpose = this.createElement(
+      "p",
+      ["card-text"],
+      `Purpose of visit : ${this.cardInfo.purposeOfVisit}`
+    );
+    this.urgent = this.createElement(
+      "p",
+      ["card-text"],
+      `Urgency : ${this.cardInfo.urgency}`
+    );
+    this.details = this.createElement(
+      "p",
+      ["card-text"],
+      `Description : ${this.cardInfo.description}`
+    );
+    this.patientAge = this.createElement(
+      "p",
+      ["card-text"],
+      `Age : ${this.cardInfo.age}`
+    );
+    this.visitStatus = this.createElement(
+      "p",
+      ["card-text"],
+      this.cardInfo.status
+    );
+    this.bodyElement.push(
+      this.purpose,
+      this.urgent,
+      this.details,
+      this.patientAge,
+      this.visitStatus
+    );
+  };
+  renderDentist = () => {
+    this.purpose = this.createElement(
+      "p",
+      ["card-text"],
+      `Purpose of visit : ${this.cardInfo.purposeOfVisit}`
+    );
+    this.urgent = this.createElement(
+      "p",
+      ["card-text"],
+      `Urgency : ${this.cardInfo.urgency}`
+    );
+    this.details = this.createElement(
+      "p",
+      ["card-text"],
+      `Description : ${this.cardInfo.description}`
+    );
 
+    this.lastVisit = this.createElement(
+      "p",
+      ["card-text"],
+      `Last visit : ${this.cardInfo.dateLastVisit}`
+    );
+    this.visitStatus = this.createElement(
+      "p",
+      ["card-text"],
+      this.cardInfo.status
+    );
+    this.bodyElement.push(
+      this.purpose,
+      this.urgent,
+      this.details,
+      this.lastVisit,
+      this.visitStatus
+    );
+  };
+  renderCardiologist = () => {
+    this.purpose = this.createElement(
+      "p",
+      ["card-text"],
+      `Purpose of visit : ${this.cardInfo.purposeOfVisit}`
+    );
+    this.urgent = this.createElement(
+      "p",
+      ["card-text"],
+      `Urgency : ${this.cardInfo.urgency}`
+    );
+    this.details = this.createElement(
+      "p",
+      ["card-text"],
+      `Description : ${this.cardInfo.description}`
+    );
+    this.patientAge = this.createElement(
+      "p",
+      ["card-text"],
+      `Age : ${this.cardInfo.age}`
+    );
+    this.bodyMass = this.createElement(
+      "p",
+      ["card-text"],
+      `Body mass index : ${this.cardInfo.bodyMassIndex}`
+    );
+    this.diseases = this.createElement(
+      "p",
+      ["card-text"],
+      `Patient past diseases : ${this.cardInfo.pastDiseases}`
+    );
+    this.currentPressure = this.createElement(
+      "p",
+      ["card-text"],
+      `Patient current pressure : ${this.cardInfo.pressure}`
+    );
+    this.visitStatus = this.createElement(
+      "p",
+      ["card-text"],
+      this.cardInfo.status
+    );
+    this.bodyElement.push(
+      this.purpose,
+      this.urgent,
+      this.details,
+      this.patientAge,
+      this.bodyMass,
+      this.diseases,
+      this.currentPressure,
+      this.visitStatus
+    );
+  };
   renderBody() {
     this.body = this.createElement("div", [`card-body-${this.cardInfo.id}`]);
     this.hideButton = this.createElement("i", ["bi", "bi-caret-up-square"]);
@@ -91,18 +212,18 @@ export class Card extends Element {
       this.leadMoreButton.style.display = "block";
     });
     this.body.style.display = "none";
-    const bodyElement = [];
-    for (let key in this.cardInfo) {
-      if (
-        this.cardInfo[key] !== this.cardInfo.doctor &&
-        this.cardInfo[key] !== this.cardInfo.fullName &&
-        this.cardInfo[key] !== this.cardInfo.id
-      ) {
-        let el = this.createElement("p", ["card-text"], this.cardInfo[key]);
-        bodyElement.push(el);
-      }
+    this.bodyElement = [];
+
+    if (this.cardInfo.doctor === "Therapist") {
+      this.renderTherapist();
     }
-    this.body.append(...bodyElement, this.hideButton);
+    if (this.cardInfo.doctor === "Dentist") {
+      this.renderDentist();
+    }
+    if (this.cardInfo.doctor === "Cardiologist") {
+      this.renderCardiologist();
+    }
+    this.body.append(...this.bodyElement, this.hideButton);
 
     return this.body;
   }
