@@ -9,7 +9,6 @@ export class EditCard extends Element {
     super();
     this.cardContent = cardContent;
   }
-
   handlerEditCard = (e) => {
     const elements = e.target.elements;
     let formData = { id: this.cardContent.id };
@@ -55,12 +54,14 @@ export class EditCard extends Element {
         });
       }
       if (key == "doctor") {
-        this.editFormFields.push({
-          typeField: "select",
-          name: "doctor",
-          options: ["Cardiologist", "Dentist", "Therapist"],
-          value: this.cardContent[key],
-        });
+        this.editFormFields.push(
+          {
+            typeField: "select",
+            name: "doctor",
+            options: ["Cardiologist", "Dentist", "Therapist"],
+            value: this.cardContent[key],
+          }
+        );
       }
 
       if (key == "status") {
@@ -90,6 +91,7 @@ export class EditCard extends Element {
           value: this.cardContent[key],
         });
       }
+      // console.log(this.cardContent);
     }
 
     this.editFormFields.push({
@@ -100,7 +102,8 @@ export class EditCard extends Element {
     });
 
     this.editForm = new Form(this.editFormFields);
-
+    console.log(this.editFormFields);
+    console.log(this.editForm);
     return this.editForm.render();
   }
 

@@ -31,6 +31,7 @@ export class Form extends Element {
           value
         );
         element = select.render();
+        console.log(element);
       }
       if (configItem.typeField === "textarea") {
         const { name, placeholder, value } = configItem;
