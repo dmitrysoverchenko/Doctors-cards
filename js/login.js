@@ -37,7 +37,9 @@ class LoginForm extends Element {
     const createVisitBtn = document.querySelector(".create-visit-btn");
 
     const email = form.target["email"].value;
+
     const password = form.target["password"].value;
+    console.log(email, password);
     authorization(email, password).then(async (res) => {
       if (res) {
         enterBtn.style.display = "none";
