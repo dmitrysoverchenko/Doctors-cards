@@ -2,7 +2,7 @@ function dragDrop() {
   const dropCards = document.querySelectorAll(".card");
   dropCards.forEach((el) => {
     document.ondragstart = () => false;
-    let rect = el.getBoundingClientRect();
+    el.getBoundingClientRect();
     let css = getComputedStyle(el);
 
     el.onmousedown = (e) => {
