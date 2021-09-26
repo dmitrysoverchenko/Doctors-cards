@@ -34,7 +34,7 @@ class Visit extends Element {
       {
         typeField: "select",
         name: "status",
-        options: ["Current visit status : Open", "Current visit status : Done"],
+        options: ["Open", "Done"],
       },
     ];
   }

@@ -16,6 +16,7 @@ export class EditCard extends Element {
     this.editFormFields.forEach((el) => {
       if (el.name) {
         formData = { ...formData, [el.name]: elements[el.name].value };
+        // console.log(formData);
       }
     });
     editCard(this.cardContent.id, formData).then((response) => {
@@ -29,7 +30,14 @@ export class EditCard extends Element {
   renderEditForm() {
     this.editFormFields = [];
     for (let key in this.cardContent) {
-      if (key !== "id" && key !== "urgency" && key !== "description") {
+      // console.log(key, this.cardContent[key]);
+      if (
+        key !== "id" &&
+        key !== "urgency" &&
+        key !== "description" &&
+        key !== "doctor" &&
+        key !== "status"
+      ) {
         this.editFormFields.push({
           typeField: "input",
           type: "text",
@@ -42,10 +50,28 @@ export class EditCard extends Element {
         this.editFormFields.push({
           typeField: "select",
           name: "urgency",
-          options: ["High", "Normal", "Low"],
+          options: ["Normal", "Priority", "Emergency"],
           value: this.cardContent[key],
         });
       }
+      if (key == "doctor") {
+        this.editFormFields.push({
+          typeField: "select",
+          name: "doctor",
+          options: ["Cardiologist", "Dentist", "Therapist"],
+          value: this.cardContent[key],
+        });
+      }
+
+      if (key == "status") {
+        this.editFormFields.push({
+          typeField: "select",
+          name: "status",
+          options: ["Open", "Done"],
+          value: this.cardContent[key],
+        });
+      }
+
       if (key == "description") {
         this.editFormFields.push({
           typeField: "textarea",
