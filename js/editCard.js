@@ -15,7 +15,6 @@ export class EditCard extends Element {
     this.editFormFields.forEach((el) => {
       if (el.name) {
         formData = { ...formData, [el.name]: elements[el.name].value };
-        // console.log(formData);
       }
     });
     editCard(this.cardContent.id, formData).then((response) => {
@@ -29,7 +28,6 @@ export class EditCard extends Element {
   renderEditForm() {
     this.editFormFields = [];
     for (let key in this.cardContent) {
-      // console.log(key, this.cardContent[key]);
       if (
         key !== "id" &&
         key !== "urgency" &&
@@ -48,28 +46,26 @@ export class EditCard extends Element {
       if (key == "urgency") {
         this.editFormFields.push({
           typeField: "select",
+          placeholder: "Urgency: ",
           name: "urgency",
-          options: ["Normal", "Priority", "Emergency"],
-          value: this.cardContent[key],
+          options: ["High", "Normal", "Low"],
         });
       }
       if (key == "doctor") {
-        this.editFormFields.push(
-          {
-            typeField: "select",
-            name: "doctor",
-            options: ["Cardiologist", "Dentist", "Therapist"],
-            value: this.cardContent[key],
-          }
-        );
+        this.editFormFields.push({
+          typeField: "select",
+          name: "doctor",
+          placeholder: "Doctor: ",
+          options: ["Cardiologist", "Dentist", "Therapist"],
+        });
       }
 
       if (key == "status") {
         this.editFormFields.push({
           typeField: "select",
           name: "status",
+          placeholder: "Status: ",
           options: ["Open", "Done"],
-          value: this.cardContent[key],
         });
       }
 
@@ -91,7 +87,6 @@ export class EditCard extends Element {
           value: this.cardContent[key],
         });
       }
-      // console.log(this.cardContent);
     }
 
     this.editFormFields.push({
@@ -102,8 +97,6 @@ export class EditCard extends Element {
     });
 
     this.editForm = new Form(this.editFormFields);
-    console.log(this.editFormFields);
-    console.log(this.editForm);
     return this.editForm.render();
   }
 

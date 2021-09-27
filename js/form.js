@@ -22,16 +22,22 @@ export class Form extends Element {
         element = input.render();
       }
       if (configItem.typeField === "select") {
-        const { handlerChange, name, options, value } = configItem;
+        const {
+          handlerChange,
+          name,
+          placeholder = "",
+          options,
+          value,
+        } = configItem;
         let select = new Select(
           options,
           name,
+          placeholder,
           handlerChange,
           ["form-control"],
           value
         );
         element = select.render();
-        console.log(element);
       }
       if (configItem.typeField === "textarea") {
         const { name, placeholder, value } = configItem;

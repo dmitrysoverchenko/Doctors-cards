@@ -24,6 +24,7 @@ class Visit extends Element {
         typeField: "select",
         name: "urgency",
         options: ["High", "Normal", "Low"],
+        placeholder: "Urgency: ",
       },
       {
         typeField: "textarea",
@@ -35,6 +36,7 @@ class Visit extends Element {
         typeField: "select",
         name: "status",
         options: ["Open", "Done"],
+        placeholder: "Status: ",
       },
     ];
   }
@@ -65,7 +67,8 @@ class Visit extends Element {
     const select = new Select(
       ["Select the doctor", "Cardiologist", "Dentist", "Therapist"],
       "doctor",
-      "",
+
+      "Doctor: ",
       this.chooseTheDoctor
     );
     this.createVisitForm.append(select.render());
