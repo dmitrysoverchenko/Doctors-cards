@@ -9,9 +9,9 @@ login: trial1010@gmail.com
 password: 1010
 
 
-Use commands:
-npm run dev - to run application into the developer mode
-npm run build - to run application into production mode, ready for using by users
+Use commands: <br>
+npm run dev - to run application into the developer mode <br>
+npm run build - to run application into production mode, ready for using by users <br>
 
-Project on GitHub Pages:
+Project on GitHub Pages: <br>
 https://dmitrysoverchenko.github.io/Doctors-cards/
