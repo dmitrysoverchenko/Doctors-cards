@@ -1,42 +1,14 @@
-**Step Project Doctor visit dashboard**
+Project Doctor visit dashboard on ES6 Classes
 
-Задание:
-Вам нужно создать страницу, на которой Секретарша сможет создавать карточки, описывающие запланированные визиты к врачам.
-На странице должны присутствовать:
+Used technologies: HTML5, CSS3, JS(ES6)
 
-Header (шапка) страницы:
 
-в левом верхнем углу - логотип. Можно взять любой
-в правом углу - Кнопка "Вход". После успешной авторизации она должна меняться на Кнопку "Создать визит".
-
-Под Header - форма для фильтрации визитов. В этой форме должно быть 3 поля:
-
-поиск по заголовку/содержимому визита
-поиск по статусу (Open/Done) (визит прошел или еще нет)
-срочность визита (High, Normal, Low)
-
-Под формой фильтров - список созданных визитов.
-
-Участники проекта:
-
-1. Сергей Лукьянчук:
-
-   - Классы создания элементов
-   - Фильтры
-   - Стилистика
-
-2. Дарий Павлик
-
-   - API запросы
-   - Модальное окно Логин
-   - Структура карточки визита
-
-3. Дмитрий Соверченко
-   - Модальное окно создания карты
-   - Модальное окно редактирования карты
-
-Проект на Github Pages https://luckyserj.github.io/Doctor_Visit/
+To test you can use this login data:
 
 login: trial1010@gmail.com
-
 password: 1010
+
+
+Use commands:
+npm run dev - to run application into the developer mode
+npm run build - to run application into production mode, ready for using by users
