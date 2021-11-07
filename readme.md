@@ -1,4 +1,4 @@
-Project Doctor visit dashboard on ES6 Classes
+Project "Doctor's visit dashboard" on ES Classes
 
 Used technologies: HTML5, CSS3, JS(ES6)
 
