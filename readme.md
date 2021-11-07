@@ -12,3 +12,6 @@ password: 1010
 Use commands:
 npm run dev - to run application into the developer mode
 npm run build - to run application into production mode, ready for using by users
+
+Project on GitHub Pages:
+https://dmitrysoverchenko.github.io/Doctors-cards/
