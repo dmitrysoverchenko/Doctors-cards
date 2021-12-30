@@ -14,4 +14,4 @@ npm run dev - to run application into the developer mode <br>
 npm run build - to run application into production mode, ready for using by users <br>
 
 Project on GitHub Pages: <br>
-https://dmitrysoverchenko.github.io/Doctors-cards/
+https://dmitrysoverchenko.github.io/doctors-cards/
